@@ -1,0 +1,22 @@
+<div class="container">
+    <h2 class="font-weight-lighter my-3 ml-1">Product</h2>
+    <div class="card shadow p-4 mb-5 bg-white">
+        <div class="card-body" *ngFor="let product of products">
+            <h2 class="card-title font-weight-lighter">
+                {{ product.name }}
+            </h2>
+            <h3 class="card-subtitle mt-2 mb-3 text-muted font-weight-bold">
+                Price: ${{ product.msrp }}
+            </h3>
+            <p class="card-text">
+                {{ product.description }}
+            </p>
+        </div>
+    </div>
+    <div class="d-flex justify-content-end">
+        <app-back-button> </app-back-button>
+        <button type="button" class="btn btn-primary mb-3 py-2" (click)="addToCart()">
+            <i class="fas fa-cart-arrow-down"></i> Add to Cart
+        </button>
+    </div>
+</div>

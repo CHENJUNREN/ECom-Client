@@ -1,0 +1,9 @@
+<div class="container">
+    <h2 class="font-weight-lighter my-3 ml-1">Catalog</h2>
+    <div class="list-group shadow mb-5 bg-white">
+        <a class="list-group-item list-group-item-action" *ngFor="let c of list" 
+                [routerLink] = "['/category']" [queryParams] = "{id: c.id, name: c.name}">
+            {{ c.name }}
+        </a>
+    </div>
+</div>

@@ -1,0 +1,62 @@
+<div class="container">
+    <h2 class="font-weight-lighter my-3 ml-1">
+        Shipping Address
+    </h2>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="shadow p-5 mb-5 bg-white">
+            <div class="form-group">
+                <label for="Recipient_Name">Recipient Name</label>
+                <div class="row">
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="First name" formControlName="firstName"
+                            required>
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="Last name" formControlName="lastName"
+                            required>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Street_Address_1">Street Address 1</label>
+                <input type="text" class="form-control" formControlName="street1" required>
+            </div>
+            <div class="form-group">
+                <label for="Street_Address_2">Street Address 2</label>
+                <input type="text" class="form-control" placeholder="Apartment, suite, etc. (Optional)"
+                    formControlName="street2">
+            </div>
+            <div class="form-group">
+                <label for="City">City</label>
+                <input type="text" class="form-control" formControlName="city" required>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col">
+                        <label for="Country">Country</label>
+                        <input type="text" class="form-control" formControlName="country" required>
+                    </div>
+                    <div class="col">
+                        <label for="Province">Province</label>
+                        <input type="text" class="form-control" formControlName="province" required>
+                    </div>
+                    <div class="col">
+                        <label for="Postal_Code">Postal Code</label>
+                        <input type="text" class="form-control" formControlName="postalCode" required>
+                        <div class="alert alert-danger mt-3" *ngIf="(postalCode.dirty || postalCode.touched) && postalCode.invalid && postalCode.errors.pattern">
+                            Invalid Postal Code!
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Delivery_Instructions">Delivery Instructions</label>
+                <textarea class="form-control" id="exampleFormControlTextarea3" rows="3" placeholder="Optional"
+                    formControlName="instructions"></textarea>
+            </div>
+        </div>
+        <div class="d-flex justify-content-end">
+            <button type="submit" class="btn btn-primary mb-3 py-2"><i class="fas fa-arrow-up"></i> Submit</button>
+        </div>
+    </form>
+</div>

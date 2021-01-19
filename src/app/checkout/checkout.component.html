@@ -1,0 +1,94 @@
+<div class="container">
+    <h2 class="font-weight-lighter my-3 ml-1">
+        Order Details
+    </h2>
+    <div class="shadow p-4 mb-5 bg-white rounded">
+        <h5>Shipping Address:</h5>
+        <div class="ml-3">
+            <div class="row">
+                <div class="col">{{shippingAddr.firstName + " " + shippingAddr.lastName}}</div>
+            </div>
+            <div class="row">
+                <div class="col">{{shippingAddr.street1}}</div>
+            </div>
+            <div class="row">
+                <div class="col">{{shippingAddr.street2}}</div>
+            </div>
+            <div class="row">
+                <div class="col">{{shippingAddr.city + ", " + shippingAddr.province + " " + shippingAddr.postalCode}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">{{shippingAddr.country}}</div>
+            </div>
+        </div>
+        <div *ngIf="shippingAddr.instructions != ''">
+            <h5 class="mt-2">Delivery Instructions:</h5>
+            <div class="ml-3">
+                <div class="row">
+                    <div class="col">{{shippingAddr.instructions}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="shadow p-3 mb-5 bg-white rounded">
+        <table class="table table-borderless">
+            <thead>
+                <tr>
+                    <th scope="col">Item</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Subtotal</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of cart">
+                    <td>
+                        {{item.name}}
+                    </td>
+                    <td>
+                        {{item.qty}}
+                    </td>
+                    <td>
+                        {{item.price}}
+                    </td>
+                    <td>
+                        {{(item.price * item.qty).toFixed(2)}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="d-flex justify-content-end">
+        <h4 class="font-weight-lighter mx-3 mb-5">Total: {{total}}</h4>
+    </div>
+
+    <div class="d-flex justify-content-end">
+        <button type="button" class="btn btn-primary mb-3 py-2" [routerLink]="['/catalog']">
+            <i class="fas fa-store"></i> Continue Shopping
+        </button>
+        <button type="button" class="btn btn-primary mb-3 py-2" data-toggle="modal" data-target="#exampleModal">
+            <i class="far fa-credit-card"></i> Checkout
+        </button>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Order Confirmation</h5>
+                    </div>
+                    <div class="modal-body">
+                        Thank you for shopping with us! We’ll send a confirmation once your items have shipped!
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fas fa-times"></i>
+                            Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light d-flex shadow mb-4">
+    <a class="navbar-brand font-weight-lighter" [routerLink]="['/catalog']">
+        <i class='fas fa-car-side'></i> Online Hobby Store</a>
+    <div class="ml-auto">
+        <button type="button" class="btn btn-default" [routerLink]="['/shipTo']">
+            <i class="fas fa-truck"></i> Ship-To
+        </button>
+        <button type="button" class="btn btn-default" [routerLink]="['/cart']">
+            <i class="fas fa-shopping-cart"></i> Cart
+        </button>
+    </div>
+</nav>
+
+<router-outlet></router-outlet>
