@@ -1,1 +1,1 @@
-export const url = "https://ecom-site-backend.herokuapp.com";
+export const url = "localhost:5000";
